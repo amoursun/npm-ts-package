@@ -1,6 +1,12 @@
-const num: number = 1;
-export function test(): number {
-    return num + 1;
+
+class XXX  {
+    constructor() {
+    }
 }
 
-export declare type TestType = number;
+export function createXXX() {
+    const instance = new XXX();
+    return instance;
+}
+
+export * from './types';

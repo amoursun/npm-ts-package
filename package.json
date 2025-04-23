@@ -1,5 +1,5 @@
 {
-    "name": "version-check-prompt",
+    "name": "@amoursun/xxx",
     "version": "1.0.1",
     "description": "前端资源更新检查提示",
     "keywords": [
@@ -11,42 +11,46 @@
         "polling",
         "prompt"
     ],
-    "homepage": "https://github.com/amoursun/version-check-prompt",
+    "homepage": "https://github.com/amoursun/xxx",
     "bugs": {
-        "url": "https://github.com/amoursun/version-check-prompt/issues"
+        "url": "https://github.com/amoursun/xxx/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git@github.com:amoursun/version-check-prompt.git"
+        "url": "https://github.com/amoursun/xxx.git"
     },
     "author": "gyl<gylssm@126.com>",
     "license": "MIT",
     "type": "module",
     "exports": {
         ".": {
+            "types": "./dist/types/index.d.ts",
             "browser": "./dist/umd/index.min.js",
             "import": "./dist/esm/index.js",
-            "require": "./dist/cjs/index.js",
-            "types": "./dist/types/index.d.ts",
-            "unpkg": "./dist/umd/index.min.js"
+            "require": "./dist/cjs/index.js"
+        },
+        "./types": {
+            "types": "./dist/types/index.d.ts"
         }
     },
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
-    "browser": "dist/umd/index.js",
+    "browser": "dist/umd/index.min.js",
     "unpkg": "dist/umd/index.min.js",
     "types": "dist/types/index.d.ts",
     "files": [
         "dist"
     ],
     "scripts": {
-        "build": "npm run clean && rslib build",
+        "build": "pnpm run clean && rslib build",
         "dev": "rslib build --watch",
-        "test": "vitest",
         "clean": "rimraf dist",
         "changeset": "changeset",
-        "build:version": "zx script/config-version.js",
-        "prepare": "pnpm run build"
+        "build:package": "zx script/package-config.js",
+        "prepare": "pnpm run build",
+        "test": "vitest",
+        "test:run": "vitest run",
+        "test:coverage": "vitest run --coverage"
     },
     "devDependencies": {
         "@biomejs/biome": "^1.9.4",
@@ -54,9 +58,13 @@
         "@rslib/core": "^0.6.2",
         "@testing-library/jest-dom": "^6.6.3",
         "@types/node": "^22.14.1",
+        "@types/shelljs": "^0.8.15",
+        "@vitest/coverage-v8": "3.1.1",
+        "jsdom": "^26.1.0",
         "prettier": "^3.5.3",
         "rimraf": "^6.0.1",
         "rsbuild-plugin-dts": "^0.6.3",
+        "shelljs": "^0.9.2",
         "typescript": "^5.8.3",
         "vitest": "^3.1.1",
         "zx": "^8.5.2"
